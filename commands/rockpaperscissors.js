@@ -21,7 +21,7 @@ function compare(choice1, choice2) {
     if (choice1 > choice2) {
         return "I win";
     } else {
-        return "You";
+        return "You win";
     }
 }
 module.exports = {
