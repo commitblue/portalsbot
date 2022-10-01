@@ -27,6 +27,7 @@ client.on("interactionCreate", interaction => {
     }
 })
 client.on("ready", () => {
+    console.log("ready")
     const commandsData = client.application.commands
     for (const [_, command] of Object.entries(commandsData)){
         commandsData.create(command.data)
