@@ -17,7 +17,13 @@ fs.readdir("./commands/", (err, files) => {
     }
 })
 client.on("interactionCreate", interaction => {
-
+    if (!interaction.isCommand()){
+        return
+    }
+    const found = commands[interaction.commandName]
+    if (found){
+        found.command(interaction)
+    }
 })
 client.on("ready", () => {
     const commandsData = client.application.commands
