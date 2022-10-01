@@ -4,7 +4,9 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
 let commands = {}
-
+client.on("interactionCreate", interaction => {
+    
+})
 client.on("ready", () => {
 
 })
