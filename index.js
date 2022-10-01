@@ -11,6 +11,7 @@ fs.readdir("./commands/", (err, files) => {
         console.log(err)
     } else {
         files.forEach(file => {
+            file = "./commands/" + file
             const required = require(file)
             commands[required.data.name] = required
         })
