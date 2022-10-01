@@ -27,7 +27,7 @@ function compare(choice1, choice2) {
 module.exports = {
     data: {
         name: "rockpaperscissors",
-        description: "0. Rock, 1. Scissors, 2. Paper",
+        description: "0. Rock, 1. paper, 2. scissors",
         options: [
             {
                 type: 4,
