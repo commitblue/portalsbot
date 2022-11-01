@@ -14,7 +14,7 @@ fs.readdir("./commands/", (err, files) => {
         files.forEach(file => {
             file = "./commands/" + file
             const required = require(file)
-            //@ts-ignore
+            //@ts-ignore:next-line
             commands[required.data.name] = required
         })
     }
@@ -38,7 +38,7 @@ client.on("ready", () => {
         type command = {
             data : any;
         };
-        //@ts-ignore
+        //@ts-ignore:next-line
         commandsData?.create(command?.data)
     }
 })
