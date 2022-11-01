@@ -42,7 +42,10 @@ client.on("ready", () => {
         type command = {
             data : any;
         };
-        commandsData?.create(command?.data)
+        if (false){
+            //@ts-ignore
+            commandsData?.create(command?.data)
+        }
     }
 })
 client.login(process.env.token)
