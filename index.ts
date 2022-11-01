@@ -14,11 +14,7 @@ fs.readdir("./commands/", (err, files) => {
         files.forEach(file => {
             file = "./commands/" + file
             const required = require(file)
-            type required = {
-                data : {
-                    name : string;
-                };
-            }
+            //@ts-ignore
             commands[required.data.name] = required
         })
     }
@@ -42,10 +38,8 @@ client.on("ready", () => {
         type command = {
             data : any;
         };
-        if (false){
-            //@ts-ignore
-            commandsData?.create(command?.data)
-        }
+        //@ts-ignore
+        commandsData?.create(command?.data)
     }
 })
 client.login(process.env.token)
