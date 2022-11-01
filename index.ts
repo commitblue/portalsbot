@@ -40,7 +40,7 @@ client.on("ready", () => {
     const commandsData = client.application?.commands
     for (const [_, command] of Object.entries(commands)){
         type command = {
-            data : {};
+            data : any;
         };
         commandsData?.create(command?.data)
     }
