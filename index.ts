@@ -1,8 +1,8 @@
 import {Client, GatewayIntentBits} from "discord.js"
 import fs from "fs"
-const modules = "./modules/"
-import {} from `${modules}/server.js`
-require("dotenv").config()
+import {} from `./modules/server`
+import {config} from "dotenv"
+config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
