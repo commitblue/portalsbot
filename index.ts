@@ -6,7 +6,7 @@ config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
-let commands : any = <any>{}
+let commands = {} as any
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
