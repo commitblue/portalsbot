@@ -1,12 +1,12 @@
 import {Client, GatewayIntentBits} from "discord.js"
 import fs from "fs"
-import {} from "./modules/server"
+require("./modules/server")
 import {config} from "dotenv"
 config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
-let commands = {}
+let commands : any = <any>{}
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
