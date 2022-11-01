@@ -14,11 +14,19 @@ fs.readdir("./commands/", (err, files) => {
         files.forEach(file => {
             file = "./commands/" + file
             const required = require(file)
+            type required = {
+                data : {
+                    name : string;
+                };
+            }
             commands[required.data.name] = required
         })
     }
 })
 client.on("interactionCreate", interaction => {
+    type interaction = {
+        isCommand : () => boolean;
+    }
     if (!interaction.isCommand()){
         return
     }
@@ -32,7 +40,7 @@ client.on("ready", () => {
     const commandsData = client.application?.commands
     for (const [_, command] of Object.entries(commands)){
         type command = {
-            data?
+
         }
         commandsData?.create(command?.data)
     }
