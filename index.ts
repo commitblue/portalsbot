@@ -1,6 +1,6 @@
 import {Client, GatewayIntentBits} from "discord.js"
 import fs from "fs"
-import {} from `./modules/server`
+import {} from "./modules/server"
 import {config} from "dotenv"
 config()
 const client = new Client({
