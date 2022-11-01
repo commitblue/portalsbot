@@ -1,5 +1,5 @@
-const {Client, GatewayIntentBits} = require("discord.js")
-const fs = require("fs")
+import {Client, GatewayIntentBits} from "discord.js"
+import fs from "fs"
 const modules = "./modules/"
 require(modules + "server.js")
 require("dotenv").config()
