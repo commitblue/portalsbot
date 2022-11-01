@@ -29,9 +29,12 @@ client.on("interactionCreate", interaction => {
 })
 client.on("ready", () => {
     console.log("ready")
-    const commandsData = client.application.commands
+    const commandsData = client.application?.commands
     for (const [_, command] of Object.entries(commands)){
-        commandsData.create(command.data)
+        type command = {
+            data? : string;
+        }
+        commandsData?.create(command?.data)
     }
 })
 client.login(process.env.token)
