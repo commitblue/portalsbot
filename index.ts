@@ -7,7 +7,7 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
 let commands = {} as any
-let commandsArray = []
+let commandsArray = [] as Array<Object>
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
@@ -15,13 +15,16 @@ fs.readdir("./commands/", (err, files) => {
         type requireType = {
             data : {
                 name : string
-            }
+            },
+            command : null
         }
         files.forEach(file => {
             file = "./commands/" + file
             const required : requireType = require(file)
             commands[required.data.name] = required
-            commandsArray.push(required)
+            let noCommandRequired : requireType = required
+            noCommandRequired["command"] = null
+            commandsArray.push(noCommandRequired)
         })
     }
 })
