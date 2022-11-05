@@ -46,7 +46,10 @@ client.on("ready", () => {
     type commandType = {
         data : ApplicationCommandDataResolvable;
     };
-    commandsData?.set(commandsArray)
+    for (let i = 0; i > commandsArray.length; i++){
+        const data = commandsArray[i]
+        commandsData?.create(data)
+    }
     console.log("ready")
 })
 client.login(process.env.token)
