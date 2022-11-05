@@ -42,7 +42,6 @@ module.exports = {
             await interaction.reply("Invalid number")
             return
         }
-        await interaction.guild.members.fetch()
         const MYChoice = randomNumber(0, 2)
         await interaction.reply(`I chose ${choices[MYChoice]}\n you chose ${choices[rockPaperOrScissors]}\n${compare(choices[MYChoice], choices[rockPaperOrScissors])}`)
     }
