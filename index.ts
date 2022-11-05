@@ -34,7 +34,7 @@ client.on("interactionCreate", interaction => {
     }
     const found = commands[interaction.commandName]
     if (found){
-        found.command(interaction)
+        found.execute(interaction)
     }
 })
 client.on("ready", () => {

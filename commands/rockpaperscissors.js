@@ -36,7 +36,7 @@ module.exports = {
             }
         ]
     },
-    command: async interaction => {
+    execute: async interaction => {
         const rockPaperOrScissors = interaction.options.getInteger("rockpaperorscissors")
         if (rockPaperOrScissors > 2 || rockPaperOrScissors < 0){
             await interaction.reply("Invalid number")

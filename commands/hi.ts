@@ -5,7 +5,7 @@ module.exports = {
         name : "hi",
         description : "Says hi back."
     },
-    command: async (interaction : CommandInteraction) => {
+    execute: async (interaction : CommandInteraction) => {
         await interaction.reply("Hi")
     }
 }
