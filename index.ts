@@ -7,7 +7,7 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
 let commands = {} as any
-let datas = {} as any
+let datas = [] as any
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
