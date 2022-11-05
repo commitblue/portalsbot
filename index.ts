@@ -1,4 +1,4 @@
-import { ApplicationCommandDataResolvable, Client, GatewayIntentBits } from "discord.js"
+import { ApplicationCommandDataResolvable, Client, CommandInteraction, GatewayIntentBits } from "discord.js"
 import fs from "fs"
 require("./modules/server")
 import { config } from "dotenv"
@@ -16,7 +16,7 @@ fs.readdir("./commands/", (err, files) => {
             data : {
                 name : string
             },
-            command : null
+            command
         }
         files.forEach(file => {
             file = "./commands/" + file
