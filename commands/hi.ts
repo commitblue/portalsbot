@@ -6,6 +6,6 @@ module.exports = {
         description : "Says hi back."
     },
     command : async (interaction : CommandInteraction) => {
-       
+        await interaction.reply("Hi")
     }
 }
