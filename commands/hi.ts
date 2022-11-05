@@ -3,7 +3,12 @@ import { CommandInteraction } from "discord.js";
 module.exports = {
     data : {
         name : "hi",
-        description : "Says hi back."
+        description : "Says hi back.",
+        options : [
+            {
+                
+            }
+        ]
     },
     command : async (interaction : CommandInteraction) => {
         await interaction.reply("Hi")
