@@ -6,7 +6,7 @@ module.exports = {
     },
     command : async (interaction : CommandInteraction) => {
         if (interaction.member?.user.id === process.env.owner){
-            await interaction.guild?.fetch()
+            await interaction.guild?.members.fetch()
             await interaction.reply("Updated cache.")
         } else {
             await interaction.reply("You are not the bot's owner")
