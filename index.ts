@@ -11,10 +11,14 @@ fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
     } else {
+        type requireType = {
+            data : {
+                name : string
+            }
+        }
         files.forEach(file => {
             file = "./commands/" + file
-            const required = require(file)
-            //@ts-ignore:next-line
+            const required : requireType = require(file)
             commands[required.data.name] = required
         })
     }
