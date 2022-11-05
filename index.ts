@@ -1,7 +1,7 @@
 const { ApplicationCommandDataResolvable, Client, GatewayIntentBits } = require("discord.js")
-import fs from "fs"
+const fs = require("fs")
 require("./modules/server")
-import { config } from "dotenv"
+const { config } = require("dotenv")
 config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
