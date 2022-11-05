@@ -1,7 +1,7 @@
-import {ApplicationCommandDataResolvable, Client, GatewayIntentBits} from "discord.js"
+import { ApplicationCommandDataResolvable, Client, GatewayIntentBits } from "discord.js"
 import fs from "fs"
 require("./modules/server")
-import {config} from "dotenv"
+import { config } from "dotenv"
 config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
@@ -19,7 +19,6 @@ fs.readdir("./commands/", (err, files) => {
         files.forEach(file => {
             file = "./commands/" + file
             const required : requireType = require(file)
-            console.log(required)
             commands[required.data.name] = required
         })
     }
