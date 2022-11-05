@@ -13,7 +13,7 @@ fs.readdir("./commands/", (err, files) => {
         console.log(err)
     } else {
         type requireType = {
-            data : ApplicationCommandDataResolvable & {
+            data : {
                 name : string
             },
             command : null
