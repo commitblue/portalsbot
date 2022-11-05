@@ -19,6 +19,7 @@ fs.readdir("./commands/", (err, files) => {
         files.forEach(file => {
             file = "./commands/" + file
             const required : requireType = require(file)
+            console.log(required)
             commands[required.data.name] = required
         })
     }
