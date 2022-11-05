@@ -5,7 +5,7 @@ module.exports = {
         description : "updates the cache"
     },
     command : async (interaction : CommandInteraction) => {
-        if (interaction.member?.user.id === ""){
+        if (interaction.member?.user.id === process.env.owner){
             await interaction.guild?.fetch()
             await interaction.reply("Updated cache.")
         } else {
