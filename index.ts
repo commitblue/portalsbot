@@ -7,6 +7,7 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
 let commands = {} as any
+let commandsArray = []
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
@@ -20,6 +21,7 @@ fs.readdir("./commands/", (err, files) => {
             file = "./commands/" + file
             const required : requireType = require(file)
             commands[required.data.name] = required
+            commandsArray.push(required)
         })
     }
 })
@@ -40,10 +42,7 @@ client.on("ready", () => {
     type commandType = {
         data : ApplicationCommandDataResolvable;
     };
-    for (let index = 0; index > commands.length; index++){
-        let cmd = commands[index] as commandType
-        commandsData?.create(cmd?.data)
-    }
+    commandsData?.set(commandsArray)
     console.log("ready")
 })
 client.login(process.env.token)
