@@ -8,6 +8,8 @@ module.exports = {
         if (interaction.member?.user.id === ""){
             await interaction.guild?.fetch()
             await interaction.reply("Updated cache.")
+        } else {
+            await interaction.reply("You are not the bot's owner")
         }
     }
 }
