@@ -7,13 +7,13 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
 let commands = {} as any
-let commandsArray = [] as Array<Object>
+let commandsArray = [] as Array<ApplicationCommandDataResolvable>
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
     } else {
         type requireType = {
-            data : {
+            data : ApplicationCommandDataResolvable & {
                 name : string
             },
             command : null
@@ -24,6 +24,7 @@ fs.readdir("./commands/", (err, files) => {
             commands[required.data.name] = required
             let noCommandRequired : requireType = required
             noCommandRequired["command"] = null
+            //@ts-ignore:next-line
             commandsArray.push(noCommandRequired)
         })
     }
