@@ -38,10 +38,11 @@ client.on("interactionCreate", interaction => {
 client.on("ready", () => {
     console.log("ready")
     const commandsData = client.application?.commands
-    for (const [_, command] of Object.entries(commands)){
-        type command = {
-            data : any;
-        };
+    type commandType = {
+        data : any;
+    };
+    for (let [_, command] of Object.entries(commands)){
+        let cmd : commandType = command 
         //@ts-ignore:next-line
         commandsData?.create(command?.data)
     }
