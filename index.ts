@@ -36,7 +36,6 @@ client.on("interactionCreate", interaction => {
     }
 })
 client.on("ready", () => {
-    console.log("ready")
     const commandsData = client.application?.commands
     type commandType = {
         data : ApplicationCommandDataResolvable;
@@ -45,5 +44,6 @@ client.on("ready", () => {
         let cmd = commands[index] as commandType
         commandsData?.create(cmd?.data)
     }
+    console.log("ready")
 })
 client.login(process.env.token)
