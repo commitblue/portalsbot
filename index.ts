@@ -1,4 +1,4 @@
-import {Client, GatewayIntentBits} from "discord.js"
+import {ApplicationCommandDataResolvable, Client, GatewayIntentBits} from "discord.js"
 import fs from "fs"
 require("./modules/server")
 import {config} from "dotenv"
@@ -6,10 +6,7 @@ config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
-type commandsObject = Object
-let commands : commandsObject = {
-    string : Object
-}
+let commands = {} as any
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
@@ -42,10 +39,10 @@ client.on("ready", () => {
     console.log("ready")
     const commandsData = client.application?.commands
     type commandType = {
-        data : any;
+        data : ApplicationCommandDataResolvable;
     };
-    for (let [_, command] of Object.entries(commands)){
-        let cmd : commandType = command 
+    for (let index = 0; index > commands.length; index++){
+        let cmd = commands[index] as commandType
         commandsData?.create(cmd?.data)
     }
 })
