@@ -6,7 +6,8 @@ config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
-let commands = {} as any
+type commandsObject = Object
+let commands : commandsObject = {}
 fs.readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
@@ -43,8 +44,7 @@ client.on("ready", () => {
     };
     for (let [_, command] of Object.entries(commands)){
         let cmd : commandType = command 
-        //@ts-ignore:next-line
-        commandsData?.create(command?.data)
+        commandsData?.create(cmd?.data)
     }
 })
 client.login(process.env.token)
