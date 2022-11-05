@@ -1,4 +1,4 @@
-import { ApplicationCommandDataResolvable, Client, GatewayIntentBits } from "discord.js"
+const { ApplicationCommandDataResolvable, Client, GatewayIntentBits } = require("discord.js")
 import fs from "fs"
 require("./modules/server")
 import { config } from "dotenv"
@@ -38,7 +38,7 @@ client.on("interactionCreate", interaction => {
 client.on("ready", () => {
     const commandsData = client.application?.commands
     type commandType = {
-        data : ApplicationCommandDataResolvable;
+        data : typeof ApplicationCommandDataResolvable;
     };
     for (let index = 0; index > commands.length; index++){
         let cmd = commands[index] as commandType
