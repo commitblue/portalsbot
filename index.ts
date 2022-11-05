@@ -15,17 +15,12 @@ fs.readdir("./commands/", (err, files) => {
         type requireType = {
             data : {
                 name : string
-            },
-            command : any
+            }
         }
         files.forEach(file => {
             file = "./commands/" + file
             const required : requireType = require(file)
             commands[required.data.name] = required
-            let noCommandRequired : requireType = required
-            noCommandRequired["command"] = null
-            //@ts-ignore:next-line
-            commandsArray.push(noCommandRequired)
         })
     }
 })
@@ -46,8 +41,8 @@ client.on("ready", () => {
     type commandType = {
         data : ApplicationCommandDataResolvable;
     };
-    for (let i = 0; i > commandsArray.length; i++){
-        const data = commandsArray[i]
+    for (let i = 0; i > commands.length; i++){
+        const data = commands[i].data
         commandsData?.create(data)
     }
     console.log("ready")
