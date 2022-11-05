@@ -16,7 +16,7 @@ fs.readdir("./commands/", (err, files) => {
             data : {
                 name : string
             },
-            command
+            command : any
         }
         files.forEach(file => {
             file = "./commands/" + file
