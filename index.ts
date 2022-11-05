@@ -1,7 +1,7 @@
-const { ApplicationCommandDataResolvable, Client, GatewayIntentBits } = require("discord.js")
-const fs = require("fs")
+import { ApplicationCommandDataResolvable, Client, GatewayIntentBits } from "discord.js"
+import fs from "fs"
 require("./modules/server")
-const { config } = require("dotenv")
+import { config } from "dotenv"
 config()
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
@@ -38,7 +38,7 @@ client.on("interactionCreate", interaction => {
 client.on("ready", () => {
     const commandsData = client.application?.commands
     type commandType = {
-        data : typeof ApplicationCommandDataResolvable;
+        data : ApplicationCommandDataResolvable;
     };
     for (let index = 0; index > commands.length; index++){
         let cmd = commands[index] as commandType
