@@ -8,6 +8,7 @@ module.exports = {
         command
         .setName("AES128Encrypt")),
     async execute(interaction : CommandInteraction){
+        if (!interaction.isChatInputCommand()){return} // ts === good
         if (interaction.options.getSubcommand() === "AES128Encrypt"){
             
         }
