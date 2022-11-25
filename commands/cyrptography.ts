@@ -1,4 +1,4 @@
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { CommandInteraction, InteractionResponse, SlashCommandBuilder } from "discord.js";
 import cyrptoAES from "crypto-js/aes"
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,10 +11,12 @@ module.exports = {
         .addStringOption(option => option
             .setName("value")
             .setDescription("value")
+            .setRequired(true)
         )
         .addStringOption(option => option
             .setName("blob")
             .setDescription("blob")
+            .setRequired(true)
         )
     ),
     async execute(interaction : CommandInteraction){
@@ -22,7 +24,7 @@ module.exports = {
         const val = interaction.options.getString("value")
         const blob = interaction.options.getString("blob")
         if (interaction.options.getSubcommand() === "aesonetwoeightEncrypt"){
-            await interaction.reply(cyrptoAES.encrypt())
+            await interaction.reply(cyrptoAES.encrypt(val, blob).toString())
         }
     }
 }
