@@ -5,8 +5,11 @@ module.exports = {
     .setName("cyrptography")
     .setDescription("cyrptography stuff (no this is not related to cyrpto)")
     .addSubcommand(command => 
-        command.setName("AES128Encrypt")),
+        command
+        .setName("AES128Encrypt")),
     async execute(interaction : CommandInteraction){
-
+        if (interaction.options.getSubcommand() === "AES128Encrypt"){
+            
+        }
     }
 }
