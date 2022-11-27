@@ -21,10 +21,11 @@ module.exports = {
     ),
     async execute(interaction : CommandInteraction){
         if (!interaction.isChatInputCommand()){return} // ts === good
-        const val = interaction.options.getString("value")
-        const blob = interaction.options.getString("blob")
+        const val : string | null = interaction.options.getString("value")
+        const blob : string | null = interaction.options.getString("blob")
+        if (!val || !blob){return}
         if (interaction.options.getSubcommand() === "aesonetwoeightEncrypt"){
-            await interaction.reply(cyrptojs.aes128.encrypt(val, blob).toString())
+            await interaction.reply(cyrptojs.AES.encrypt(val, blob).toString())
         }
     }
 }
