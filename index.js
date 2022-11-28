@@ -45,7 +45,7 @@ var client = new discord_js_1.Client({
     intents: [discord_js_1.GatewayIntentBits.Guilds, discord_js_1.GatewayIntentBits.GuildMessages]
 });
 var commands = {};
-fs_1["default"].readdir("./commands/", function (err, files) {
+(0, fs_1.readdir)("./commands/", function (err, files) {
     if (err) {
         console.log(err);
     }
