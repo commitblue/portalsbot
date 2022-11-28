@@ -35,8 +35,8 @@ client.on("interactionCreate", interaction => {
         found.execute(interaction)
     }
 })
-client.on("ready", () => {
-    const commandsData = client.guilds.cache.get("1025114367991230556")
+client.on("ready", async () => {
+    const commandsData = await client.guilds.fetch("1025114367991230556")
     if (!commandsData){return console.warn("bad")}
     for (let i = 0; i > commands.length; i++){
         const value = commands[i]
