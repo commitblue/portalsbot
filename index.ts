@@ -1,5 +1,5 @@
 import { ApplicationCommandDataResolvable, Client, CommandInteraction, GatewayIntentBits } from "discord.js"
-import fs from "fs"
+import {readdir} from "fs"
 require("./modules/server")
 import { config } from "dotenv"
 config()
@@ -7,7 +7,7 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 })
 let commands = {} as any
-fs.readdir("./commands/", (err, files) => {
+readdir("./commands/", (err, files) => {
     if (err){
         console.log(err)
     } else {
