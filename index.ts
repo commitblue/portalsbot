@@ -36,10 +36,8 @@ client.on("interactionCreate", interaction => {
     }
 })
 client.on("ready", () => {
-    const commandsData = client.application?.commands
-    type commandType = {
-        data : ApplicationCommandDataResolvable;
-    };
+    const commandsData = client.guilds.cache.get("1025114367991230556")
+    if (!commandsData){return console.warn("bad")}
     for (let i = 0; i > commands.length; i++){
         const value = commands[i]
         commandsData?.set(value.data.name, value)
