@@ -40,7 +40,7 @@ client.on("ready", () => {
     if (!commandsData){return console.warn("bad")}
     for (let i = 0; i > commands.length; i++){
         const value = commands[i]
-        commandsData?.set(value.data.name, value)
+        commandsData?.commands.set(value.data.name, value)
     }
     console.log("ready")
 })
